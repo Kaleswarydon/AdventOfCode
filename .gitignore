@@ -1,4 +1,4 @@
 scratch
 *.txt
 *.xml
-/.idea
+.idea
