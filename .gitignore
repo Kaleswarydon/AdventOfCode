@@ -2,4 +2,4 @@ scratch
 *.txt
 *.xml
 .idea
-*_fail/*
+/*_fail/*
