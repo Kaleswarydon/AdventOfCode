@@ -136,21 +136,8 @@ def get_coords2(input_data): #reversed coords for shoelace
         for step in range(int(steps)):
             temp = current_coords
             current_coords = walk(current_coords, direction)
-            res += int(np.cross(temp, current_coords))
+            res += int(np.cross(temp, current_coords)) #shoelace
         print(f"\rProcessing... {round(((i + 1) / len(input_data)) * 100, 3)} %", end="")
-    print(f"\rProcessing... Done.\n", end="")
-    return res
-
-def shoelace(input_data): #inner area x2
-    coords = get_coords2(input_data)
-    start = coords[0]
-    coords.append(start)
-    q = [start]
-    res = 0
-    coords_len = len(coords) - 1
-    for i in range(coords_len):
-        res += int(np.cross(q[i], q[i + 1]))
-        print(f"\rProcessing... {round(((i + 1) / coords_len) * 100, 3)} %", end="")
     print(f"\rProcessing... Done.\n", end="")
     return res
 
