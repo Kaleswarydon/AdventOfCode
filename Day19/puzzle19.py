@@ -112,7 +112,6 @@ def process_ranges(filter_dict, fi, part_range):
     return process_ranges(filter_dict, pr_fi[0], pr0) + process_ranges(filter_dict, pr_fi[1], pr1)
 
 def puzzle2_solver(filter_dict):
-    min_max_ranges = [1, 4000]
     var_dict = {
         'x': (1, 4000),
         'm': (1, 4000),
