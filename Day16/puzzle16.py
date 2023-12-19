@@ -80,7 +80,7 @@ def puzzle2_solver(input_data):
     dims = (len(input_data), len(input_data[0]))
     for i in range(dims[0]):
         for j in range(dims[1]):
-            if i == 0 or i == dims[0] - 1 and j == 0 or j == dims[1] - 1:
+            if i == 0 or i == dims[0] - 1 or j == 0 or j == dims[1] - 1:
                 if i == 0:
                     start_edges.append({'from': (i, j), 'to': (i, j), 'dir': 'd'})
                 if i == dims[0] - 1:
