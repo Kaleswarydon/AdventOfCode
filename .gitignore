@@ -1,6 +1,4 @@
 scratch
 *.txt
-*.xml
 .idea
-/*_fail/*
-asdf.py
+*_fail/
