@@ -52,11 +52,12 @@ class Solution:
         # print(input_data)
         res = 0
         for row in input_data:
-            tmp = 0
-            for i in range(len(row)):
-                tmp += int(self.is_valid_row(row[:i] + row[i+1:]))
-                if tmp:
-                    break
+            tmp = int(self.is_valid_row(row))
+            if not tmp:
+                for i in range(len(row)):
+                    tmp += int(self.is_valid_row(row[:i] + row[i+1:]))
+                    if tmp:
+                        break
             res += tmp
         return res
 

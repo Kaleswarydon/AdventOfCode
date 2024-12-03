@@ -34,12 +34,12 @@ class Solution:
 if __name__ == '__main__':
     sol = Solution()
 
-    input_puzzle_1_0_example = read_input("input_puzzle_1_0_example.txt", 'm', "   ")  # small test input
-    input_puzzle_1_1 = read_input("input_puzzle_1_1.txt", 'm', "   ")  # real puzzle input
+    input_puzzle_1_0_example = read_input("input_puzzle_1_0_example.txt", 'm', " ")  # small test input
+    input_puzzle_1_1 = read_input("input_puzzle_1_1.txt", 'm', " ")  # real puzzle input
     print(sol.puzzle1(input_puzzle_1_0_example))
     #print(sol.puzzle1(input_puzzle_1_1))
 
-    input_puzzle_2_0_example = read_input("input_puzzle_2_0_example.txt", 'm', "   ")
-    input_puzzle_2_1 = read_input("input_puzzle_2_1.txt", 'm', "   ")
+    input_puzzle_2_0_example = read_input("input_puzzle_2_0_example.txt", 'm', " ")
+    input_puzzle_2_1 = read_input("input_puzzle_2_1.txt", 'm', " ")
     #print(sol.puzzle2(input_puzzle_2_0_example))
     #print(sol.puzzle2(input_puzzle_2_1))
