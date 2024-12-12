@@ -64,14 +64,15 @@ class Solution:
             for blink in range(blink_amount):
                 tmp_dict = defaultdict(int)  # creating a separate dict for every step (blink) is still inefficient but good enough
                 for k in stone_dict.keys():
-                    s = str(k)
-                    if not k:
-                        tmp_dict[1] += stone_dict[k]
-                    elif not len(s) % 2:
-                        tmp_dict[int(s[:len(s)//2])] += stone_dict[k]
-                        tmp_dict[int(s[len(s)//2:])] += stone_dict[k]
-                    else:
-                        tmp_dict[k * 2024] += stone_dict[k]
+                    if stone_dict[k]:
+                        s = str(k)
+                        if not k:
+                            tmp_dict[1] += stone_dict[k]
+                        elif not len(s) % 2:
+                            tmp_dict[int(s[:len(s)//2])] += stone_dict[k]
+                            tmp_dict[int(s[len(s)//2:])] += stone_dict[k]
+                        else:
+                            tmp_dict[k * 2024] += stone_dict[k]
                 stone_dict = tmp_dict
             res += sum(stone_dict.values())
         return res
