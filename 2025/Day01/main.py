@@ -37,12 +37,21 @@ def read_input(input_file, mode="line", sep=','):
 
 def prepare_input(inp):  # individual input preparation
     # inp = [[int(y) for y in x] for x in inp]  # any to int
+    inp = [[-1 if x[0] == 'L' else 1, int(x[1:])] for x in inp]
     return inp
 
 class Solution:
     #@timer
     def puzzle1(self, inp):
-        print(inp)
+        #print(inp)
+        curr_pos = 50
+        cntr = 0
+        for item in inp:
+            direction, amount = item
+            curr_pos = (curr_pos + (direction * amount)) % 100
+            if not curr_pos:
+                cntr += 1
+        return cntr
 
     #@timer
     def puzzle2(self, inp):
@@ -53,8 +62,8 @@ if __name__ == '__main__':
 
     input_puzzle_1_0_example = read_input("input_puzzle_1_0_example.txt", 'l', " ")  # small test input
     input_puzzle_1_1 = read_input("input_puzzle_1_1.txt", 'l', " ")  # real puzzle input
-    print(sol.puzzle1(input_puzzle_1_0_example))
-    #print(sol.puzzle1(input_puzzle_1_1))
+    print(sol.puzzle1(input_puzzle_1_0_example))  # 3
+    print(sol.puzzle1(input_puzzle_1_1))
 
     input_puzzle_2_0_example = read_input("input_puzzle_2_0_example.txt", 'l', " ")
     input_puzzle_2_1 = read_input("input_puzzle_2_1.txt", 'l', " ")

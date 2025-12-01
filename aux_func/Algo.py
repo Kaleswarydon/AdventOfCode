@@ -39,6 +39,9 @@ def gravity(m, grav_center):
 def rotate(m):  # rotate matrix 90deg (clockwise)
     return [[m[j][i] for j in range(len(m) - 1, -1, -1)] for i in range(len(m[0]))]
 
+def is_coord_valid(self, coord, dims):
+    return 0 <= coord[0] < dims[0] and 0 <= coord[1] < dims[1]
+
 ##############################################################################
 
 #-----------------------------------------------------------------------------
