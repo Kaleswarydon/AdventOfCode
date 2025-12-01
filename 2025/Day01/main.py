@@ -43,7 +43,6 @@ def prepare_input(inp):  # individual input preparation
 class Solution:
     #@timer
     def puzzle1(self, inp):
-        #print(inp)
         curr_pos = 50
         cntr = 0
         for item in inp:
@@ -55,7 +54,18 @@ class Solution:
 
     #@timer
     def puzzle2(self, inp):
-        print(inp)
+        curr_pos = 50
+        cntr = 0
+        for item in inp:
+            direction, amount = item
+            zeroes, next_pos = divmod(curr_pos + (direction * amount), 100)
+            cntr += abs(zeroes)
+            if zeroes < 0 and not curr_pos:
+                cntr -= 1
+            if zeroes <= 0 and not next_pos:
+                cntr += 1
+            curr_pos = next_pos
+        return cntr
 
 if __name__ == '__main__':
     sol = Solution()
@@ -67,5 +77,5 @@ if __name__ == '__main__':
 
     input_puzzle_2_0_example = read_input("input_puzzle_2_0_example.txt", 'l', " ")
     input_puzzle_2_1 = read_input("input_puzzle_2_1.txt", 'l', " ")
-    #print(sol.puzzle2(input_puzzle_2_0_example))
-    #print(sol.puzzle2(input_puzzle_2_1))
+    print(sol.puzzle2(input_puzzle_2_0_example))  # 6
+    print(sol.puzzle2(input_puzzle_2_1))
