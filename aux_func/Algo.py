@@ -10,6 +10,7 @@ def make_edge_list(src_list, dest_list, weight_list):
 def make_edge(a, b, directed: bool=False):
     return (a, b) if directed else frozenset({a, b})
 
+
 def gravity(m, grav_center):
     """
     apply "gravity" to a matrix, slide stones towards center of grav
@@ -39,8 +40,27 @@ def gravity(m, grav_center):
 def rotate(m):  # rotate matrix 90deg (clockwise)
     return [[m[j][i] for j in range(len(m) - 1, -1, -1)] for i in range(len(m[0]))]
 
-def is_coord_valid(self, coord, dims):
+
+def is_coord_valid(coord: list | tuple, dims: list | tuple):
     return 0 <= coord[0] < dims[0] and 0 <= coord[1] < dims[1]
+
+
+def surrounding_coords(coord: list | tuple):
+    return [
+        # upper row from left to right
+        (coord[0] - 1, coord[1] - 1),
+        (coord[0] - 1, coord[1] + 0),
+        (coord[0] - 1, coord[1] + 1),
+
+        # adjacents left/right
+        (coord[0] + 0, coord[1] - 1),
+        (coord[0] + 0, coord[1] + 1),
+
+        # lower row from left to right
+        (coord[0] + 1, coord[1] - 1),
+        (coord[0] + 1, coord[1] + 0),
+        (coord[0] + 1, coord[1] + 1)
+            ]
 
 ##############################################################################
 
@@ -103,4 +123,6 @@ def binary_search(l, r, arr, target):
 
 
 if __name__ == '__main__':
-    print(binary_search([10], 5))  # -1
+    #print(binary_search([10], 5))  # -1
+    print(surrounding_coords((1,1)))
+    pass

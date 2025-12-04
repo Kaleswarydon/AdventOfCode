@@ -1,5 +1,4 @@
 from math import trunc
-
 prnt = print
 from icecream import ic as print
 from collections import defaultdict, deque
