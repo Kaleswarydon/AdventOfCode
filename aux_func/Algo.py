@@ -37,7 +37,7 @@ def gravity(m, grav_center):
     return m
 
 
-def rotate(m):  # rotate matrix 90deg (clockwise)
+def rotate_clockwise(m):  # rotate matrix 90deg (clockwise)
     return [[m[j][i] for j in range(len(m) - 1, -1, -1)] for i in range(len(m[0]))]
 
 
